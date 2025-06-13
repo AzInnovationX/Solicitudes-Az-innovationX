@@ -1,0 +1,865 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Az InnovationX - Donde las Ideas Cobran Vida</title>
+    <style>
+        /* Estilos base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #764ba2;
+            text-decoration: none;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        nav a:hover {
+            color: #764ba2;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iYSIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiPjxwYXRoIGQ9Im0wIDBoMTAwdjEwMGgtMTAweiIgZmlsbD0iIzY2N2VlYSIvPjxwYXRoIGQ9Im0wIDBoNTB2NTBoLTUweiIgZmlsbD0iIzc2NGJhMiIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIGZpbGw9InVybCgjYSkiLz48L3N2Zz4=');
+            background-size: cover;
+            background-position: center;
+            padding: 6rem 0;
+            text-align: center;
+            color: white;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+        }
+        
+        /* About Section */
+        .about-section {
+            background: white;
+            padding: 4rem 0;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .about-text h2 {
+            font-size: 2.5rem;
+            color: #764ba2;
+            margin-bottom: 2rem;
+        }
+        
+        .about-text p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: #666;
+            text-align: justify;
+        }
+        
+        .about-image {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            height: 300px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        /* Services Section */
+        .services-section {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 4rem 0;
+        }
+        
+        .services-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #764ba2;
+            margin-bottom: 3rem;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #764ba2;
+        }
+        
+        .service-card h3 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+        
+        .service-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            background: white;
+            padding: 4rem 0;
+        }
+        
+        .contact-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #764ba2;
+            margin-bottom: 3rem;
+        }
+        
+        .contact-form {
+            max-width: 800px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #f8f9ff 0%, #e8ecff 100%);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e0e6ff;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            background: white;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .submit-btn {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 1.2rem 3rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: block;
+            margin: 2rem auto 0;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            width: 100%;
+            max-width: 300px;
+        }
+        
+        .submit-btn:hover:not(:disabled) {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+        }
+        
+        .submit-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .success-message {
+            display: none;
+            background: linear-gradient(45deg, #4ade80, #22c55e);
+            color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 1rem;
+            font-weight: 600;
+        }
+        
+        /* Security Section */
+        .security-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .security-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .paypal-info {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 15px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Social Section */
+        .social-section {
+            background: #222;
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .social-section h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #fff;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .social-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+            padding: 1rem;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            min-width: 120px;
+        }
+        
+        .social-link:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .social-icon {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover .social-icon {
+            transform: scale(1.1);
+        }
+        
+        .facebook .social-icon {
+            color: #1877F2;
+        }
+        
+        .tiktok .social-icon {
+            color: #000;
+        }
+        
+        .instagram .social-icon {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .social-name {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Media Queries - Mobile First Approach */
+        
+        /* Tablets (768px and down) */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .hero {
+                padding: 4rem 0;
+                min-height: 60vh;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+                line-height: 1.2;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+                padding: 0 1rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .about-text h2 {
+                font-size: 2rem;
+                text-align: center;
+            }
+            
+            .about-image {
+                height: 250px;
+                font-size: 2rem;
+                order: -1;
+            }
+            
+            .services-section {
+                padding: 3rem 0;
+            }
+            
+            .services-section h2 {
+                font-size: 2rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .service-card {
+                padding: 1.5rem;
+            }
+            
+            .contact-section {
+                padding: 3rem 0;
+            }
+            
+            .contact-section h2 {
+                font-size: 2rem;
+            }
+            
+            .contact-form {
+                padding: 1.5rem;
+                margin: 0 1rem;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+            
+            .security-section {
+                padding: 3rem 0;
+            }
+            
+            .security-section h2 {
+                font-size: 2rem;
+            }
+            
+            .paypal-info {
+                padding: 1.5rem;
+                margin: 0 1rem;
+            }
+            
+            .social-links {
+                gap: 1rem;
+                padding: 0 1rem;
+            }
+            
+            .social-link {
+                min-width: 100px;
+                padding: 0.8rem;
+            }
+            
+            .social-icon {
+                font-size: 2.5rem;
+            }
+            
+            footer {
+                padding: 2rem 1rem;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+        
+        /* Small Mobile Phones (480px and down) */
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 10px;
+            }
+            
+            .logo {
+                font-size: 1.5rem;
+            }
+            
+            .hero {
+                padding: 3rem 0;
+                min-height: 50vh;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+                margin-bottom: 0.5rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .cta-button {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
+            
+            .about-section,
+            .services-section,
+            .contact-section,
+            .security-section {
+                padding: 2rem 0;
+            }
+            
+            .about-text h2,
+            .services-section h2,
+            .contact-section h2,
+            .security-section h2 {
+                font-size: 1.8rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .about-text p {
+                font-size: 1rem;
+                text-align: left;
+                margin-bottom: 1rem;
+            }
+            
+            .about-image {
+                height: 200px;
+                font-size: 1.5rem;
+            }
+            
+            .service-card {
+                padding: 1rem;
+            }
+            
+            .service-icon {
+                font-size: 2.5rem;
+            }
+            
+            .service-card h3 {
+                font-size: 1.3rem;
+            }
+            
+            .contact-form {
+                padding: 1rem;
+                margin: 0 0.5rem;
+            }
+            
+            .form-group {
+                margin-bottom: 1rem;
+            }
+            
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                padding: 0.8rem;
+                font-size: 0.9rem;
+            }
+            
+            .submit-btn {
+                padding: 1rem 2rem;
+                font-size: 1rem;
+            }
+            
+            .paypal-info {
+                padding: 1rem;
+                margin: 0 0.5rem;
+            }
+            
+            .social-section h2 {
+                font-size: 1.5rem;
+            }
+            
+            .social-links {
+                gap: 0.5rem;
+                justify-content: space-around;
+            }
+            
+            .social-link {
+                min-width: 80px;
+                padding: 0.5rem;
+            }
+            
+            .social-icon {
+                font-size: 2rem;
+            }
+            
+            .social-name {
+                font-size: 0.8rem;
+            }
+            
+            footer {
+                padding: 1.5rem 0.5rem;
+            }
+            
+            footer p {
+                font-size: 0.9rem;
+            }
+        }
+        
+        /* Extra Small Devices (320px and down) */
+        @media (max-width: 320px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 0.9rem;
+            }
+            
+            .about-text h2,
+            .services-section h2,
+            .contact-section h2,
+            .security-section h2 {
+                font-size: 1.5rem;
+            }
+            
+            .service-card {
+                padding: 0.8rem;
+            }
+            
+            .contact-form {
+                margin: 0;
+            }
+            
+            .social-link {
+                min-width: 70px;
+                padding: 0.4rem;
+            }
+            
+            .social-icon {
+                font-size: 1.8rem;
+            }
+        }
+        
+        /* Touch-friendly improvements */
+        @media (hover: none) and (pointer: coarse) {
+            .cta-button,
+            .submit-btn,
+            .social-link {
+                min-height: 44px;
+            }
+            
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                min-height: 44px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">Az InnovationX</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Az InnovationX</h1>
+                <p>Donde las Ideas Cobran Vida - Te ayudamos a llevar tu idea al mundo digital con soluciones innovadoras y personalizadas</p>
+            </div>
+        </section>
+
+        <section class="about-section">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2>¿Quiénes Somos?</h2>
+                        <p>Az InnovationX fue desarrollada para ayudar a los emprendedores a dar vida a sus ideas. Hemos estudiado las necesidades específicas de los negocios en crecimiento y ofrecemos soluciones digitales personalizadas para impulsar su éxito.</p>
+                        <p>Nos enfocamos en crear herramientas que ayuden a los emprendedores a conectar con su público, crecer su negocio y alcanzar sus metas. Desde aplicaciones Android hasta páginas web y tiendas online, además de chatbots inteligentes y consultoría de seguridad informática.</p>
+                        <p>Priorizamos la experiencia del usuario y la tranquilidad de nuestros clientes, ofreciendo soluciones a medida que realmente marquen la diferencia en su negocio.</p>
+                    </div>
+                    <div class="about-image">
+                        💡 INNOVACIÓN
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="services-section">
+            <div class="container">
+                <h2>Nuestros Servicios</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">📱</div>
+                        <h3>Desarrollo de Aplicaciones Android</h3>
+                        <p>Desarrollamos aplicaciones Android personalizadas, optimizadas para brindar una experiencia de usuario excepcional. Desde el diseño intuitivo hasta la funcionalidad robusta, nos encargamos de todo el proceso, incluyendo la publicación en nuestra tienda de aplicaciones.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🌐</div>
+                        <h3>Páginas Web</h3>
+                        <p>Creamos páginas web atractivas y funcionales que te ayudarán a conectar con tu público objetivo y a impulsar tu negocio. Diseños modernos, responsivos y optimizados para conversiones.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🛒</div>
+                        <h3>Tiendas Online</h3>
+                        <p>Convierte tu negocio en un éxito online con una tienda online profesional y de alto rendimiento. Te ofrecemos soluciones personalizadas para que puedas vender tus productos o servicios en línea de manera fácil y segura.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🤖</div>
+                        <h3>Chatbots Inteligentes</h3>
+                        <p>¡Deja que tus chatbots impulsen el crecimiento de tu negocio! Creamos chatbots inteligentes y personalizados que automatizan la atención al cliente y aumentan tus ventas. Atención 24/7 para tus clientes.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🔒</div>
+                        <h3>Consultoría en Seguridad Informática</h3>
+                        <p>La seguridad informática puede ser compleja, pero no tiene que serlo para ti. Nuestra consultoría te ofrece explicaciones claras de los riesgos y soluciones prácticas para proteger tu negocio. Desde configuración de firewalls hasta formación de personal.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-section">
+            <div class="container">
+                <h2>Contáctanos</h2>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nombre">Nombre Completo *</label>
+                            <input type="text" id="nombre" name="nombre" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Correo Electrónico *</label>
+                            <input type="email" id="email" name="email" required />
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="telefono">Teléfono</label>
+                            <input type="tel" id="telefono" name="telefono" />
+                        </div>
+                        <div class="form-group">
+                            <label for="empresa">Empresa/Organización</label>
+                            <input type="text" id="empresa" name="empresa" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="servicio">Servicio de Interés *</label>
+                        <select id="servicio" name="servicio" required>
+                            <option value="">Selecciona un servicio</option>
+                            <option value="aplicaciones-android">Desarrollo de Aplicaciones Android</option>
+                            <option value="paginas-web">Páginas Web</option>
+                            <option value="tiendas-online">Tiendas Online</option>
+                            <option value="chatbots">Chatbots Inteligentes</option>
+                            <option value="seguridad">Consultoría en Seguridad Informática</option>
+                            <option value="multiple">Múltiples Servicios</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="presupuesto">Presupuesto Estimado</label>
+                        <select id="presupuesto" name="presupuesto">
+                            <option value="">Selecciona un rango</option>
+                            <option value="menos-3000">Menos de $3,000 MXN</option>
+                            <option value="3000-5000">$3,000 - $5,000 MXN</option>
+                            <option value="5000-8000">$5,000 - $8,000 MXN</option>
+                            <option value="8000-12000">$8,000 - $12,000 MXN</option>
+                            <option value="12000-16000">$12,000 - $16,000 MXN</option>
+                            <option value="16000-20000">$16,000 - $20,000 MXN</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="mensaje">Cuéntanos sobre tu proyecto *</label>
+                        <textarea id="mensaje" name="mensaje" placeholder="Describe tu idea, objetivos, funcionalidades deseadas, timeline, etc. Mientras más detalles compartas, mejor podremos ayudarte." required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Enviar Solicitud</button>
+                    <div class="success-message" id="successMessage">
+                        ¡Gracias por contactarnos! Hemos recibido tu mensaje y nos pondremos en contacto contigo en las próximas 24 horas.
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <section class="security-section">
+            <div class="container">
+                <h2>Pagos Seguros</h2>
+                <div class="paypal-info">
+                    <p><strong>🔐 Priorizamos la seguridad de tus pagos</strong></p>
+                    <p>Trabaj
